@@ -2,13 +2,18 @@
   "name": "bulma-hac",
   "version": "0.0.1",
   "description": "Bulma HAC - Grades Never Looked This Good",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/For-0/bulma-HAC.git"
+  },
+  "scripts": {
+    "start": "parcel",
+    "build": "rm -rf dist && parcel build --no-source-maps",
+    "cleanup": "rm -rf .parcel-cache dist",
+    "watch": "npm run cleanup && parcel watch --no-hmr"
   },
   "keywords": [
     "ui"
