@@ -1,0 +1,25 @@
+{
+  "name": "bulma-hac",
+  "version": "0.0.1",
+  "description": "Bulma HAC - Grades Never Looked This Good",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/For-0/bulma-HAC.git"
+  },
+  "keywords": [
+    "ui"
+  ],
+  "author": "For Zero Applications",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/For-0/bulma-HAC/issues"
+  },
+  "homepage": "https://github.com/For-0/bulma-HAC#readme",
+  "dependencies": {
+    "bulma": "^0.9.4"
+  }
+}

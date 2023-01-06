@@ -1,0 +1,26 @@
+{
+  "name": "BulmaHAC - Grades Never Looked This Good",
+  "version": "0.0.1",
+  "description": "Enter BulmaHAC, a one-click Chrome extension that completely transforms PowerSchool's Access Center for students. Created with Bulma.io.",
+  "icons": {
+    "16": "img/logo/BHAC-Transparent_16x16.png",
+    "32": "img/logo/BHAC-Transparent_32x32.png",
+    "48": "img/logo/BHAC-Transparent_48x48.png",
+    "64": "img/logo/BHAC-Transparent_64x64.png",
+    "128": "img/logo/BHAC-Transparent_128x128.png"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": [ "src/js/index.js" ]
+  },
+
+  "content_scripts": [ {
+    "js": [ "src/js/contentmain.js" ],
+    "matches": [ "https://www.accesscenter.roundrockisd.org*", "http://www.accesscenter.roundrockisd.org*" ]
+  } ],
+  "page_action": {
+    "default_title": "BulmaHAC",
+    "default_popup": "src/popup.html"
+  },
+  "permissions": [ "activeTab", "<all_urls>" ]
+}
