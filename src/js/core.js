@@ -33,8 +33,8 @@ function initNavbar() {
   document.querySelector(".sg-banner .sg-banner-right .sg-banner-menu-container .sg-menu-element-logoff").classList.add("navbar-item");
   document.querySelector(".sg-banner .sg-banner-right .sg-banner-menu-container .sg-menu-element-logoff a").style.color = "var(--primary-invert)";
   document.querySelector(".sg-banner .sg-banner-right .sg-banner-chooser").classList.add("navbar-end", "is-align-self-center", "mr-3");
-  document.querySelector(".sg-banner .sg-banner-right .sg-banner-chooser span.sg-add-change-student").classList.add("tag", "is-info", "is-align-self-center", "is-light", "mr-3");
-  document.querySelector(".sg-banner .sg-banner-right .sg-banner-chooser i.sg-add-change-student").classList.add("button", "is-info");
+  document.querySelector(".sg-banner .sg-banner-right .sg-banner-chooser span.sg-add-change-student")?.classList.add("tag", "is-info", "is-align-self-center", "is-light", "mr-3");
+  document.querySelector(".sg-banner .sg-banner-right .sg-banner-chooser i.sg-add-change-student")?.classList.add("button", "is-info");
   let homeIcon = document.createElement("span");
   homeIcon.classList.add("material-symbols-rounded", "icon");
   homeIcon.innerText = "home";
