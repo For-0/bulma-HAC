@@ -15,8 +15,10 @@
     "open_in_tab": true
   },
   "host_permissions": [
-    "https://accesscenter.roundrockisd.org/*",
-    "http://accesscenter.roundrockisd.org/*"
+    "*://accesscenter.roundrockisd.org/*",
+    "*://*.eschoolplus.powerschool.com/*",
+    "*://esphac.killeenisd.org/*",
+    "*://homeaccess.irvingisd.net/*"
   ],
   "permissions": [
     "storage"
@@ -24,8 +26,10 @@
   "content_scripts": [
     {
       "matches": [
-        "https://accesscenter.roundrockisd.org/*",
-        "http://accesscenter.roundrockisd.org/*"
+        "*://accesscenter.roundrockisd.org/*",
+        "*://*.eschoolplus.powerschool.com/*",
+        "*://esphac.killeenisd.org/*",
+        "*://homeaccess.irvingisd.net/*"
       ],
       "css": ["../css/core.scss"],
       "js": ["../js/core.js"],
@@ -36,8 +40,10 @@
     {
       "resources": ["../fonts/material-symbols-rounded.woff2"],
       "matches": [
-        "https://accesscenter.roundrockisd.org/*",
-        "http://accesscenter.roundrockisd.org/*"
+        "*://accesscenter.roundrockisd.org/*",
+        "*://*.eschoolplus.powerschool.com/*",
+        "*://esphac.killeenisd.org/*",
+        "*://homeaccess.irvingisd.net/*"
       ]
     }
   ]
