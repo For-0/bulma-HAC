@@ -2,18 +2,29 @@
   "name": "bulma-hac",
   "version": "0.0.1",
   "description": "Bulma HAC - Grades Never Looked This Good",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "targets": {
+    "chrome": {
+      "source": "./src/chrome/manifest.json",
+      "engines": {
+        "browsers": "Chrome > 100"
+      }
+    },
+    "firefox": {
+      "source": "./src/firefox/manifest.json",
+      "engines": {
+        "browsers": "Firefox > 100"
+      }
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/For-0/bulma-HAC.git"
   },
   "scripts": {
-    "start": "parcel",
-    "build": "rm -rf dist && parcel build --no-source-maps",
-    "cleanup": "rm -rf .parcel-cache dist",
-    "watch": "npm run cleanup && parcel watch --no-hmr"
+    "start:chrome": "npm run cleanup && parcel watch --host localhost --target chrome",
+    "start:firefox": "npm run cleanup && parcel --target firefox",
+    "build": "npm run cleanup &&  && parcel build --no-source-maps --target chrome --target firefox",
+    "cleanup": "rm -rf .parcel-cache dist"
   },
   "keywords": [
     "ui"
@@ -25,6 +36,15 @@
   },
   "homepage": "https://github.com/For-0/bulma-HAC#readme",
   "dependencies": {
+    "@bulvar/bulma": "^0.11.13",
     "bulma": "^0.9.4"
+  },
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.8.2",
+    "@parcel/optimizer-data-url": "^2.8.2",
+    "@parcel/transformer-inline-string": "^2.8.2",
+    "@parcel/transformer-pug": "^2.8.2",
+    "@parcel/transformer-sass": "^2.8.2",
+    "parcel": "^2.8.2"
   }
 }

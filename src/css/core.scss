@@ -1,0 +1,244 @@
+@use "bulma-modules" as *;
+@use "bulma-extensions";
+@use "@bulvar/bulma/themes/light";
+@use "dark-theme";
+@use "icon-font";
+
+#MainContent .container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%)translateY(-50%);
+}
+
+.sg-header-heading {
+  @extend .title, .is-4;
+}
+
+.sg-banner i.sg-add-change-student {
+  font-style: normal;
+  &::before {
+    @extend .material-symbols-rounded;
+    content: "manage_accounts";
+    margin-right: 4px;
+  }
+  &::after {
+    content: "Change Student";
+  }
+}
+
+.sg-login {
+  @extend .box;
+  .sg-login-welcome {
+    display: none;
+  }
+  #customMessage {
+    @extend .title, .is-4;
+  }
+  .sg-login-separator-20, .sg-login-separator-30 {
+    border-bottom: 0.1px solid #6868685b;
+    width: 100%;
+    height: 1px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sg-login-labels {
+    @extend .label;
+  }
+  .sg-login-input {
+    @extend .control;
+    input {
+      margin-top: 1rem;
+      @extend .input;
+    }
+  }
+  .sg-login-copyright {
+    opacity: 0.7;
+    margin-top: 1rem;
+    font-size: small;
+  }
+  .field-validation-error.sg-login-validation {
+    @extend .help, .is-danger;
+  }
+  .validation-summary-errors {
+    @extend .content, .message, .is-danger;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    > span {
+      @extend .message-header;
+      font-weight: bold;
+    }
+    > ul {
+      @extend .message-body;
+    }
+  }
+}
+form[action="./ForgotCredentials.aspx"] {
+  @extend .box;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%)translateY(-50%);
+  h5 {
+    @extend .title, .is-6;
+  }
+  .input-row {
+    @extend .field;
+    margin-bottom: 1.5rem;
+    input[type=text] {
+      @extend .input;
+    }
+    input[type=radio] {
+      @extend .is-checkradio;
+    }
+  }
+  .invalid-input + div {
+    margin-top: 1rem;
+    opacity: 0.7;
+    font-size: 0.8rem;
+  }
+}
+form[action="./Default2.aspx"] {
+  @extend .box;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%)translateY(-50%);
+  .input-row {
+    @extend .field;
+    .input-label {
+      @extend .label;
+    }
+    input[type=text] {
+      @extend .input;
+    }
+  }
+  #plnMain_ValidationSummary1 {
+    @extend .notification, .is-danger, .content;
+    margin-top: 1rem;
+    --notification-background-color:  var(--danger-light);
+    --notification-color:  var(--danger-dark);
+  }
+  #plnMain_lblNoContactInfo {
+    @extend .help, .is-danger;
+    margin-bottom: 1rem;
+  }
+}
+.hidden {
+  display: none !important;
+}
+.ui-dialog {
+  @extend .modal;
+  height: revert !important;
+  width: revert !important;
+  top: 0 !important;
+  left: 0 !important;
+  display: flex !important;
+  &::before {
+    content: "";
+    @extend .modal-background;
+  }
+  .ui-dialog-titlebar, .ui-dialog-content {
+    z-index: 2;
+    width: revert !important;
+    @extend .modal-content;
+  }
+  .ui-dialog-titlebar-close {
+    @extend .modal-close;
+    .ui-button-text {
+      display: none;
+    }
+  }
+  .ui-dialog-title, #StudentPicker {
+    @extend .box;
+    .sg-student-picker-row {
+      @extend .block, .control, .is-block;
+      margin-left: 0;
+      > div {
+        display: contents;
+      }
+    }
+  }
+  .ui-dialog-buttonset {
+    @extend .buttons;
+    margin-top: -5rem;
+    z-index: 4;
+    position: relative;
+    > button:first-child {
+      @extend .button, .is-success;
+    }
+    > button:last-child {
+      @extend .button, .is-danger;
+    }
+  }
+}
+#hac-nav-menu {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  @extend .tabs, .is-boxed, .is-fullwidth, .is-medium;
+  > .sg-hac-menu-options {
+    @extend ul;
+    width: unset !important;
+    > .sg-hac-menu-option {
+      @extend li;
+      &.sg-hac-menu-option-selected {
+        > span {
+          background-color: var(--body-background-color);
+          border-color: var(--grey-lighter);
+          border-bottom-color: transparent;
+          color: var(--link);
+        }
+        .icon {
+          --font-variation-fill: 1;
+        }
+      }
+      > span {
+        @extend a;
+      }
+      > img {
+        display: none;
+      }
+    }
+  }
+}
+#hac-nav-submenu {
+  @extend .tabs, .is-toggle, .is-toggle-rounded, .is-small;
+  > .sg-hac-submenu-options {
+    @extend ul;
+    > .sg-hac-submenu-option {
+      @extend li;
+      > span {
+        @extend a;
+      }
+    }
+  }
+}
+#TimedOutSectionContainer {
+  width: -moz-fit-content;
+  width: fit-content;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%)translateY(-50%);
+  position: fixed;
+  @extend .box;
+  .sg-header-image {
+    display: none;
+  }
+  .sg-header-heading {
+    display: flex;
+    align-items: end;
+    column-gap: 1rem;
+    &::before {
+      @extend .material-symbols-rounded, .icon;
+      content: "timer";
+    }
+  }
+}
+html:has(.ui-dialog) {
+  overflow-y: hidden;
+}
