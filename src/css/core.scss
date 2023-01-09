@@ -145,6 +145,7 @@ form[action="./Default2.aspx"] {
   .ui-dialog-titlebar, .ui-dialog-content {
     z-index: 2;
     width: revert !important;
+    min-height: 95px;
     @extend .modal-content;
   }
   .ui-dialog-titlebar-close {
@@ -153,7 +154,7 @@ form[action="./Default2.aspx"] {
       display: none;
     }
   }
-  .ui-dialog-title, #StudentPicker {
+  .ui-dialog-title, #ErrorDiv {
     @extend .box;
     .sg-student-picker-row {
       @extend .block, .control, .is-block;
@@ -207,13 +208,20 @@ form[action="./Default2.aspx"] {
   }
 }
 #hac-nav-submenu {
-  @extend .tabs, .is-toggle, .is-toggle-rounded, .is-small;
+  @extend .breadcrumb;
   > .sg-hac-submenu-options {
-    @extend ul;
+    @extend ul, .is-justify-content-center;
     > .sg-hac-submenu-option {
       @extend li;
       > span {
         @extend a;
+      }
+      &.sg-hac-submenu-option-selected {
+        @extend .is-active;
+        pointer-events: none;
+        > span {
+          @extend a;
+        }
       }
     }
   }
@@ -239,6 +247,118 @@ form[action="./Default2.aspx"] {
     }
   }
 }
+form[action^="/HomeAccess/Home/WeekView"] {
+  padding: 1rem;
+  .sg-home-sub-header {
+    @extend .level, .box;
+    .sg-left {
+      @extend .level-left;
+      flex-grow: 1;
+      justify-content: space-around;
+      .sg-buttonset {
+        @extend .buttons, .level-item;
+        margin: 0 !important;
+        > button {
+          @extend .button;
+          margin-bottom: 0;
+          > span {
+            @extend .icon;
+          }
+          &:first-child i::before {
+            @extend .material-symbols-rounded;
+            content: "chevron_left";
+            vertical-align: middle;
+          }
+          &:last-child i::before {
+            @extend .material-symbols-rounded;
+            content: "chevron_right";
+            vertical-align: middle;
+          }
+        }
+      }
+      .sg-home-nav-label {
+        @extend .level-item;
+        font-weight: semibold;
+      }
+    }
+    .sg-right {
+      @extend .level-right, .buttons;
+      > button {
+        @extend .button;
+        margin-bottom: 0;
+        &:first-child span::before {
+          @extend .material-symbols-rounded;
+          content: "today";
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+        &:last-child span::before {
+          @extend .material-symbols-rounded;
+          content: "date_range";
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  .sg-asp-table {
+    @extend .table;
+    #courseName + div {
+      width: 100%;
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+    #average {
+      @extend .title, .is-3;
+      &:empty {
+        line-height: 0;
+        &::before {
+          content: "technically a 100";
+          font-size: small;
+          @extend .rainbow-text;
+          animation-delay: -10s !important;
+        }
+      }
+    }
+  }
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+#MainContent {
+  flex-grow: 1;
+  position: static !important;
+  height: auto !important;
+}
+.sg-main-footer {
+  @extend .footer;
+}
+#sg-legacy-iframe {
+  width: 100%;
+  height: 100% !important;
+}
 html:has(.ui-dialog) {
   overflow-y: hidden;
+}
+// Thank you the author of this answerer for the code: https://stackoverflow.com/a/54702294 (Austen Holland) and thank you to Ruhan for finding said answer
+.rainbow-text {
+  background: linear-gradient(to right, #ef5350, #f48fb1, #7e57c2, #2196f3, #26c6da, #43a047, #eeff41, #f9a825, #ff5722);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: move-background 20s linear infinite;
+  background-size: 400% 100%;
+}
+@keyframes move-background {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
 }

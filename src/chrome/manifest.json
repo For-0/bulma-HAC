@@ -15,13 +15,11 @@
     "open_in_tab": true
   },
   "host_permissions": [
-    "*://accesscenter.roundrockisd.org/*",
-    "*://*.eschoolplus.powerschool.com/*",
-    "*://esphac.killeenisd.org/*",
-    "*://homeaccess.irvingisd.net/*"
+    "*://accesscenter.roundrockisd.org/*"
   ],
   "permissions": [
-    "storage"
+    "storage",
+    "declarativeNetRequestWithHostAccess"
   ],
   "content_scripts": [
     {
@@ -33,7 +31,8 @@
       ],
       "css": ["../css/core.scss"],
       "js": ["../js/core.js"],
-      "run_at": "document_start"
+      "run_at": "document_start",
+      "all_frames": true
     }
   ],
   "web_accessible_resources": [
@@ -46,5 +45,12 @@
         "*://homeaccess.irvingisd.net/*"
       ]
     }
-  ]
+  ],
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "./rules.json"
+    }]
+  }
 }

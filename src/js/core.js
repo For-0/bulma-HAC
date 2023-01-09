@@ -102,6 +102,13 @@ addEventListener("DOMContentLoaded", () => {
     }
     case "/HomeAccess/Home/WeekView": {
       initNavbar();
+      document.querySelectorAll("#average").forEach(el => {
+        if (el.innerText === "100") el.classList.add("rainbow-text");
+      });
+      break;
+    }
+    case "/HomeAccess/Home/Calendar": {
+      initNavbar();
       break;
     }
     case "/HomeAccess/Attendance/MonthView": {
@@ -110,10 +117,6 @@ addEventListener("DOMContentLoaded", () => {
     }
     case "/HomeAccess/Account/TimedOut": {
       document.getElementById("SignInButton").classList.add("button", "is-primary", "mt-3");
-      break;
-    }
-    case "/": {
-      location.href = "/HomeAccess/";
       break;
     }
   }

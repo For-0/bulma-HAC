@@ -1,0 +1,14 @@
+[{
+  "id": 1,
+  "priority": 1,
+  "action": {
+    "type": "redirect",
+    "redirect": {
+      "url": "https://accesscenter.roundrockisd.org/HomeAccess"
+    }
+  },
+  "condition": {
+    "urlFilter": "accesscenter.roundrockisd.org/|",
+    "resourceTypes": ["main_frame"]
+  }
+}]
